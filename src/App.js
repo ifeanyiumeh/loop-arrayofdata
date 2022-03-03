@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+/**
+ * Our data comes from users-data.js
+ * -----------------------------
+ */
+import users from "./users-data";
 
-function App() {
+/**
+ * Our React component where we display data
+ * -----------------------------
+ */
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="page-deets">
+        <h2>Loop Over an Array of Data</h2>
+      </div>
+
+      {/* Iterate over imported array in userData */}
+      <div className="users">
+        {/* Display each data in array in a card */}
+        {/* Each card must have a 'key' attribute */}
+
+        {users.map((user, index) => {
+          return (
+            <div key={index}>
+              <p>{user.name}</p>
+              <p>{user.location}</p>
+              <p>{user.car}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
-
-export default App;
